@@ -1,19 +1,29 @@
-ALGORITHM checkpoint
+BEGIN CHEKPOINT_ALGO
 VAR
-    write("write the sentence")
-    read(sentence)
-    length = 0
-    word_count = 0
-    vowel_count = 0
-    i = 0
+    nbreOfVowels, nbreOfWords, sentenceLength, i :=0;
+    sentence : STRING;
 BEGIN
-    while (i<=len(sentence)) do:
-        length += 1
-        if sentence[i].lower() in 'aeiou':
-            vowel_count += 1
-        word_count += 1
-        i+=1
-    print("Length of the sentence:", length)
-    print("Number of words in the sentence:", word_count)
-    print("Number of vowels in the sentence: ", vowel_count)
+    REPEAT
+        Write("Enter a valid sentence that ends with a point")
+        Read(sentence)
+
+    UNTIL (sentence = "")
+    WHILE ( sentence[i] <> "." ) DO
+    sentenceLength = sentenceLength + 1;
+    IF (
+        sentence[i]="a" OR sentence[i]="A" OR sentence[i]="e" OR sentence[i]="E" OR sentence[i]="y" OR sentence[i]="Y" OR sentence[i]="u" OR sentence[i]="U" OR sentence[i]="i" OR sentence[i]="I" OR sentence[i]="o" OR sentence[i]="O" 
+    ) THEN
+        nbreOfVowels = nbreOfVowels +1;
+    ELSE_IF (sentence[i]= " ") THEN
+        nbreOfWords = nbreOfWords +1;
+    END_IF
+    i = i + 1;
+    END_WHILE
+    sentenceLength = sentenceLength + 1;
+    IF (sentence[i-1] <> " ") THEN
+        nbreOfWords = nbreOfWords +1
+    END_IF
+    Write("Nombre of vowels" , nbreOfVowels)
+    Write("Nombre of words" , nbreOfWords)
+    Write("Length of the sentence" , sentenceLength)
 END
