@@ -1,0 +1,19 @@
+ALGORITHM checkpoint
+VAR
+    write("write the sentence")
+    read(sentence)
+    length = 0
+    word_count = 0
+    vowel_count = 0
+    i = 0
+BEGIN
+    while (i<=len(sentence)) do:
+        length += 1
+        if sentence[i].lower() in 'aeiou':
+            vowel_count += 1
+        word_count += 1
+        i+=1
+    print("Length of the sentence:", length)
+    print("Number of words in the sentence:", word_count)
+    print("Number of vowels in the sentence: ", vowel_count)
+END
